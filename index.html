@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="JM TECH: explora celulares por gama, compara modelos y encuentra opciones en una demostración local.">
+<meta name="theme-color" content="#090B14">
+<title>JM TECH · Tecnología a otro nivel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<!-- Inicio de sesión administrativo -->
+<main id="login" class="login" hidden>
+  <form id="loginForm" class="login-card" data-form="login" novalidate>
+    <div class="logo"><span class="logo-mark"><img src="./imagenes/celulares/JMTech-mark.png" alt=""></span><span class="logo-copy"><strong>JM TECH</strong><small>TECNOLOGÍA A OTRO NIVEL</small></span></div>
+    <p class="muted">Acceso administrativo protegido por el servidor</p>
+    <label for="user">Usuario</label>
+    <input id="user" autocomplete="username" maxlength="40" required>
+    <label for="pass">Contraseña</label>
+    <div class="pass-wrap"><input id="pass" type="password" autocomplete="current-password" maxlength="128" required><button type="button" class="btn ghost sm" data-act="togglePass">Mostrar</button></div>
+    <p id="loginErr" class="err" role="alert"></p>
+    <button class="btn primary block" type="submit">Ingresar al panel</button>
+    <button class="btn ghost block" type="button" data-act="returnStore">Volver a la tienda</button>
+    <p class="note">La cuenta se crea desde la terminal del servidor. No ingreses tu contraseña en equipos compartidos y cierra sesión al terminar.</p>
+  </form>
+</main>
+
+<!-- Aplicación -->
+<div id="app" class="app">
+  <aside id="side" class="side" aria-label="Navegación principal">
+    <div class="logo light"><span class="logo-mark"><img src="./imagenes/celulares/JMTech-mark.png" alt=""></span><span class="logo-copy"><strong>JM TECH</strong><small>TECNOLOGÍA A OTRO NIVEL</small></span></div>
+    <nav id="nav"></nav>
+    <button class="btn ghost-light block" data-act="logout">Cerrar sesión</button>
+  </aside>
+  <div class="main">
+    <header class="shophead">
+      <div class="ann">JM TECH · Demostración local · Los pedidos se confirman por WhatsApp, sin pagos en línea</div>
+      <div class="shopbar">
+        <button class="logo linkbtn" data-act="home" aria-label="Ir al inicio de JM TECH"><span class="logo-mark"><img src="./imagenes/celulares/JMTech-mark.png" alt=""></span><span class="logo-copy"><strong>JM TECH</strong><small>TECNOLOGÍA A OTRO NIVEL</small></span></button>
+        <button class="btn ghost icon shop-menu-btn" data-act="shopMenu" aria-label="Abrir menú de tienda" aria-expanded="false">☰</button>
+        <input type="search" id="storeQ" placeholder="Buscar celulares…" aria-label="Buscar celulares">
+        <button class="btn ghost sm" id="shopAcct" data-act="login">Ingresar</button>
+        <button class="btn ghost sm" data-act="nav" data-v="favorites" aria-label="Ver favoritos">Favoritos <span id="favoriteCount" class="badge"></span></button>
+        <button class="btn ghost sm" data-act="nav" data-v="compare">Comparar</button>
+        <button class="btn ghost sm" data-act="nav" data-v="assistant">Asistente</button>
+        <button class="btn ghost icon" data-act="nav" data-v="cart" aria-label="Carrito"><svg class="ic" viewBox="0 0 24 24"><path d="M3 3h2l3 12h11l2-8H6M9 20h.1M18 20h.1"/></svg><span id="shopCartCount" class="badge"></span></button>
+      </div>
+      <nav id="shopNav" class="shopnav" aria-label="Navegación principal"></nav>
+    </header>
+    <header class="top">
+      <button class="btn ghost icon menu-btn" data-act="menu" aria-label="Abrir menú">☰</button>
+      <div class="top-title"><h1 id="title"></h1><p id="subtitle" class="muted"></p></div>
+      <button class="btn ghost icon" data-act="notif" aria-label="Notificaciones"><svg class="ic" id="bellIc"></svg><span id="notifCount" class="badge"></span></button>
+      <button class="btn ghost icon" data-act="nav" data-v="cart" aria-label="Carrito"><svg class="ic" id="cartIc"></svg><span id="cartCount" class="badge"></span></button>
+      <div class="profile"><span class="avatar">JM</span><span class="pname">JM TECH · Admin demo</span></div>
+    </header>
+    <main id="view" class="content"></main>
+    <footer class="shopfoot"><b>JM TECH</b> · Tecnología a otro nivel<br><span class="muted">Proyecto de demostración: catálogo, precios, inventario y compras locales no representan una oferta comercial real.</span><div class="footer-links"><button class="link" data-act="nav" data-v="faq">Preguntas frecuentes</button><button class="link" data-act="nav" data-v="account">Mis pedidos</button><button class="link" data-act="nav" data-v="about">Nosotros</button><button class="link" data-act="nav" data-v="contact">Contacto</button><button class="link" data-act="whatsapp">WhatsApp</button><button class="link" data-act="login">Administración (demo)</button></div></footer>
+  </div>
+</div>
+<div id="modal" class="modal" hidden></div>
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<script src="./productos.js"></script>
+<script src="./script.js"></script>
+</body>
+</html>
